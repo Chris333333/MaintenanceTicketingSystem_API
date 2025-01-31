@@ -1,15 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Data.Entities
 {
-    public class Comment
+    public class Comment : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CommentId { get; set; }
-
         public string Content { get; set; } = null!;
 
         public required int TicketId { get; set; }

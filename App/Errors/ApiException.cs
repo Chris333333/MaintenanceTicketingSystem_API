@@ -1,4 +1,4 @@
-﻿namespace Data.Errors;
+﻿namespace App.Errors;
 
 /// <summary>
 /// Class that expands the api response with details of happened error.

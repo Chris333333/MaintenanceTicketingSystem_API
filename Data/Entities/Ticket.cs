@@ -1,18 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Data.Entities
 {
-    public class Ticket
+    public class Ticket : BaseEntity
     {
         public Ticket()
         {
             this.Comments = new HashSet<Comment>();
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TicketId { get; set; }
 
         public required string Titile { get; set; } = null!;
         [DefaultValue(typeof(DateTime), "getdate()")]

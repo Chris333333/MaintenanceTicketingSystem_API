@@ -1,7 +1,7 @@
 ﻿using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Spec
+namespace App.Spec
 {
     public class SpecificationEvaluator<TEntity> where TEntity : class
     {

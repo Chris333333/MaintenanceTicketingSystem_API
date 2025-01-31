@@ -1,4 +1,4 @@
-﻿namespace Data.Spec;
+﻿namespace App.Spec;
 
 public class BaseSpecParams
 {

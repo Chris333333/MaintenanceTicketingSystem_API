@@ -1,4 +1,4 @@
-﻿using Data.Errors;
+﻿using App.Errors;
 using System.Net;
 using System.Text.Json;
 
@@ -7,16 +7,10 @@ namespace API.Middleware;
 /// <summary>
 /// Middleware that is in a layer between controller and user response. This is a error middleware that catches error and passes them to the user.
 /// </summary>
-public class ExceptionMiddleware
+public class ExceptionMiddleware(RequestDelegate next, IWebHostEnvironment env)
 {
-    private readonly RequestDelegate _next;
-    private readonly IHostEnvironment _env;
-
-    public ExceptionMiddleware(RequestDelegate next, IWebHostEnvironment env)
-    {
-        _next = next;
-        _env = env;
-    }
+    private readonly RequestDelegate _next = next;
+    private readonly IHostEnvironment _env = env;
 
     /// <summary>
     /// This function works as a middleware between code and the client. If it catches server error (try and catch block) then just sends specified response to the client about error 500.

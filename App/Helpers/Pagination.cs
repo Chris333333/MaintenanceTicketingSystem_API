@@ -8,16 +8,16 @@
     /// <param name="pageSize"></param>
     /// <param name="count"></param>
     /// <param name="data"></param>
-    public class Pagination<T>(int pageNumber, int pageSize, int count, IReadOnlyList<T> data) where T : class
+    public class Pagination<T>(int? pageNumber, int? pageSize, int count, IReadOnlyList<T> data) where T : class
     {
         /// <summary>
         /// Page number
         /// </summary>
-        public int PageNumber { get; set; } = pageNumber;
+        public int PageNumber { get; set; } = pageNumber ?? 1;
         /// <summary>
         /// Page size
         /// </summary>
-        public int PageSize { get; set; } = pageSize;
+        public int PageSize { get; set; } = pageSize ?? 20;
         /// <summary>
         /// Total count of data
         /// </summary>

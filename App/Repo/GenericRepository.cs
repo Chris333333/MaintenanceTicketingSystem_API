@@ -1,15 +1,15 @@
 ﻿using Data.Entities;
 using Data.Interfaces;
-using Data.Spec;
+using App.Spec;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Repo
 {
-    public class TicketingSystemGenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         private readonly TicketingSystemContext _context;
 
-        public TicketingSystemGenericRepository(TicketingSystemContext context)
+        public GenericRepository(TicketingSystemContext context)
         {
             _context = context;
         }
@@ -29,12 +29,12 @@ namespace App.Repo
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
-        public async Task<List<T>> ListAllAsync()
+        public async Task<IReadOnlyList<T>> ListAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<List<T>> ListAllWithSpecAsync(ISpecification<T> spec)
+        public async Task<IReadOnlyList<T>> ListAllWithSpecAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }

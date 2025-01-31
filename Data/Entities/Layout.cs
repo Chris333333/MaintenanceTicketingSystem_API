@@ -1,19 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Data.Entities
+﻿namespace Data.Entities
 {
 
-    public class Layout
+    public class Layout : BaseEntity
     {
         public Layout()
         {
             this.Tickets = new HashSet<Ticket>();
         }
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int LayoutId { get; set; }
 
         public required string Name { get; set; } = null!;
 

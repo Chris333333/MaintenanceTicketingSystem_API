@@ -1,4 +1,4 @@
-﻿namespace Data.Errors;
+﻿namespace App.Errors;
 /// <summary>
 /// Class that returns error messages in a detailed and customized format to the user via the api response. Used in a api middleware.
 /// </summary>

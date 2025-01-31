@@ -19,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MainProfile));
 
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(TicketingSystemGenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();

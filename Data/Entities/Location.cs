@@ -1,18 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Data.Entities
+﻿namespace Data.Entities
 {
-    public class Location
+    public class Location : BaseEntity
     {
         public Location()
         {
             this.Layouts = new HashSet<Layout>();
         }
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int LocationId { get; set; }
 
         public required string Name { get; set; } = null!;
 

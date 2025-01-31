@@ -1,21 +1,16 @@
 ﻿using Data.Interfaces;
 using System.Linq.Expressions;
 
-namespace Data.Spec
+namespace App.Spec
 {
-    public class BaseSpec<T> : ISpecification<T>
+    public class BaseSpec<T>(Expression<Func<T, bool>>? criteria) : ISpecification<T>
     {
-        public BaseSpec()
+        public BaseSpec() : this(null)
         {
 
         }
 
-        public BaseSpec(Expression<Func<T, bool>> criteria)
-        {
-            Criteria = criteria;
-        }
-
-        public Expression<Func<T, bool>> Criteria { get; }
+        public Expression<Func<T, bool>>? Criteria => criteria;
 
         public List<Expression<Func<T, object>>> Includes { get; } = [];
 
